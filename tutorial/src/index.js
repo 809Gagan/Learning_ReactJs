@@ -41,4 +41,10 @@ const Greetings3 = () => {
     );
 } // ShortCut to use react fragments
 
+const Greeting4 = () => {
+    return (
+        <h1>HELLO SUKHI</h1>
+    )
+};
+
 ReactDom.render(<Greetings3 />, document.getElementById("root"))
