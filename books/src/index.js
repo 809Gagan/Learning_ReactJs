@@ -74,10 +74,27 @@ const BookList2 = () => {
     );
 }
 
+
+//paaing props by using spread operator 
+//because spreade operatot gonna spread the key and values of book object 
+//thn we can acces our props bys using props object rather than props.book
+const BookList3 = () => {
+    return (
+        <React.Fragment>
+            {
+                Books.map((book) => {
+                    return <Book key={book.id} {...book}></Book>//... is a spread  operator
+                })
+            }
+        </React.Fragment>
+    );
+}
+
 const Book = (props) => {
     // console.log(props);
     // console.log(props.children);
-    const { AuthorName, BookName } = props.book;//Object Destructuring
+    //const { AuthorName, BookName } = props.book;//Object Destructuring
+    const { AuthorName, BookName } = props;
     return (
         <div className="book" >
             <Image />
@@ -141,4 +158,4 @@ const newName = names.map((name) => {
 
 
 
-ReactDom.render(<BookList2 />, document.getElementById('root'));
+ReactDom.render(<BookList3 />, document.getElementById('root'));
