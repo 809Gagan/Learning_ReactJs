@@ -21,25 +21,37 @@ const Books = [
         id: 1,
         AuthorName: "Gagan",
         BookName: "Tail of Heads",
-        image: "/book.jpeg"
+        image: "/book.jpeg",
+        handler: () => {
+            alert("hello Brother");
+        }
     },
     {
         id: 2,
         AuthorName: "Jagnoor",
         BookName: "Sada Haq",
-        image: "/book.jpeg"
+        image: "/book.jpeg",
+        handler: () => {
+            alert("hello Brother");
+        }
     },
     {
         id: 3,
         AuthorName: "Vishav",
         BookName: "Love is Life",
-        image: "/book.jpeg"
+        image: "/book.jpeg",
+        handler: () => {
+            alert("hello Brother");
+        }
     },
     {
         id: 4,
         AuthorName: "Sukhraj",
         BookName: "Love is Technical",
-        image: "/book.jpeg"
+        image: "/book.jpeg",
+        handler: () => {
+            alert("hello Brother");
+        }
     }
 
 ];
@@ -75,7 +87,7 @@ const BookList2 = () => {
 }
 
 
-//paaing props by using spread operator 
+//passing props by using spread operator 
 //because spreade operatot gonna spread the key and values of book object 
 //thn we can acces our props bys using props object rather than props.book
 const BookList3 = () => {
@@ -101,7 +113,7 @@ const Book = (props) => {
             <h4>{props.children}</h4>
             <h4>{BookName}</h4>
             <h4>Author: {AuthorName}</h4>
-            <Button></Button>
+            <Button2 handler={props.handler}></Button2>
         </div>
     );
 }
@@ -129,8 +141,28 @@ const Image = () => {
     );
 }
 
+// Because the functions in the javaScript are also treated as an object
+//That is why we can also pass the handler functions as the props
+//for example
+
+const Button2 = (props) => {
+    const handler = props.handler;
+
+    return (
+        <button className="orangeButton" onClick={handler}>
+            Buy
+        </button>
+    )
+}
+
 const Button = () => {
     //function to handle the click event we can also use the Anonymous Functions
+    // In that case we can also pass the arguments to the anonymous function and 
+    //give those arguments to the HandleClick function
+    //And the situation will be like 
+    /* onClick =  {(argument)=>{
+        handleClick(argument);
+    }}*/
     const HandleClick = () => {
         alert('hello GHOST');
     }
@@ -153,7 +185,7 @@ const Names = () => {
 }
 
 /*
-Maps in javascrip
+Maps in javascript
 let names = ["Vishav","Jagnoor","Gagan","Sukhraj"];
 
 const newName = names.map((name)=>{
