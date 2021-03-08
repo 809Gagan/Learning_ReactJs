@@ -6,7 +6,7 @@ import "./index.css";
 
 
 /*
-Thiskind of Books willl be of same properties 
+This kind of Books will be of same properties 
 that is these books have same value of author name, tittle , same image;
 If we want to change these properties that is 
 if we want to make these properties book specific then we need to pass the properties as an object
@@ -20,20 +20,22 @@ to thefunction component (Actually react passes this props object auttomatically
 const BookList = () => {
     return (
         <React.Fragment>
-            <Book AuthorName="Gagan" />
-            <Book AuthorName="Harjot" />
-            <Book AuthorName="Balveer" />
-            <Book AuthorName="Jagnoor" />
+            <Book AuthorName="Gagan" BookName="Book is Awesome" />
+            <Book AuthorName="Harjot" BookName="telling a lie" />
+            <Book AuthorName="Balveer" BookName="johny johny" />
+            <Book AuthorName="Jagnoor" BookName="Maal Sangroor ton" />
         </React.Fragment>
     );
 }
 
 const Book = (props) => {
+    console.log(props)
+    const { AuthorName, BookName } = props;//Object Destructuring
     return (
         <div className="book" >
             <Image />
-            <Tittle />
-            <h4>Author: {props.AuthorName}</h4>
+            <h4>{BookName}</h4>
+            <h4>Author: {AuthorName}</h4>
         </div>
     );
 }
