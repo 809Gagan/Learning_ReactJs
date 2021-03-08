@@ -20,20 +20,30 @@ to thefunction component (Actually react passes this props object auttomatically
 const BookList = () => {
     return (
         <React.Fragment>
-            <Book AuthorName="Gagan" BookName="Book is Awesome" />
-            <Book AuthorName="Harjot" BookName="telling a lie" />
-            <Book AuthorName="Balveer" BookName="johny johny" />
-            <Book AuthorName="Jagnoor" BookName="Maal Sangroor ton" />
+            <Book AuthorName="Gagan" BookName="Book is Awesome" >
+                <p>Iam child Tag</p>{/*we can acces these children tags using props.children*/}
+            </Book>
+            <Book AuthorName="Prashant Babua" BookName="History till yet">
+                <p>Iam child Tag</p>
+            </Book>
+            <Book AuthorName="Balveer" BookName="johny johny">
+                <p>Iam child Tag</p>
+            </Book>
+            <Book AuthorName="Jagnoor" BookName="Maal Sangroor ton">
+                <p>Iam child Tag</p>
+            </Book>
         </React.Fragment>
     );
 }
 
 const Book = (props) => {
-    console.log(props)
+    // console.log(props);
+    // console.log(props.children);
     const { AuthorName, BookName } = props;//Object Destructuring
     return (
         <div className="book" >
             <Image />
+            <h4>{props.children}</h4>
             <h4>{BookName}</h4>
             <h4>Author: {AuthorName}</h4>
         </div>
@@ -64,4 +74,30 @@ const Image = () => {
 }
 
 
-ReactDom.render(<BookList />, document.getElementById('root'));
+let names = ["Vishav", "Jagnoor", "Gagan", "Sukhraj"];
+
+const Names = () => {
+    return (
+        <h1>{names.map((name) => {
+            return <h1>{name}</h1>
+        })}</h1>
+    );
+}
+
+/*
+Maps in javascrip
+let names = ["Vishav","Jagnoor","Gagan","Sukhraj"];
+
+const newName = names.map((name)=>{
+    console.log(name);
+});
+
+*/
+const newName = names.map((name) => {
+    console.log(name);
+});
+
+
+
+
+ReactDom.render(<Names />, document.getElementById('root'));
