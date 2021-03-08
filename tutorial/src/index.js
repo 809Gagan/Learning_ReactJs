@@ -1,5 +1,5 @@
 import React from 'react'; // importing React from react library.
-import ReactDom from 'react-dom';
+import ReactDom from 'react-dom';//importing ReactDom from react-dom
 
 /*
 JSX rules
