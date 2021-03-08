@@ -16,8 +16,32 @@ to thefunction component (Actually react passes this props object auttomatically
     for eg : <Book Author = "Kali charan"/>
 */
 
+const Books = [
+    {
+        AuthorName: "Gagan",
+        BookName: "Tail of Heads",
+        image: "/book.jpeg"
+    },
+    {
+        AuthorName: "Jagnoor",
+        BookName: "Sada Haq",
+        image: "/book.jpeg"
+    },
+    {
+        AuthorName: "Vishav",
+        BookName: "Love is Life",
+        image: "/book.jpeg"
+    },
+    {
+        AuthorName: "Sukhraj",
+        BookName: "Love is Technical",
+        image: "/book.jpeg"
+    }
 
-const BookList = () => {
+];
+
+
+const BookList1 = () => {
     return (
         <React.Fragment>
             <Book AuthorName="Gagan" BookName="Book is Awesome" >
@@ -36,10 +60,20 @@ const BookList = () => {
     );
 }
 
+const BookList2 = () => {
+    return (
+        <React.Fragment>
+            {Books.map((book) => {
+                return <Book book={book}></Book>;
+            })}
+        </React.Fragment>
+    );
+}
+
 const Book = (props) => {
     // console.log(props);
     // console.log(props.children);
-    const { AuthorName, BookName } = props;//Object Destructuring
+    const { AuthorName, BookName } = props.book;//Object Destructuring
     return (
         <div className="book" >
             <Image />
@@ -92,6 +126,9 @@ const newName = names.map((name)=>{
     console.log(name);
 });
 
+Similarly we can also render the data from am array using maps 
+data can be fetched from a database and can be stored by using array as a data structure
+
 */
 const newName = names.map((name) => {
     console.log(name);
@@ -100,4 +137,4 @@ const newName = names.map((name) => {
 
 
 
-ReactDom.render(<Names />, document.getElementById('root'));
+ReactDom.render(<BookList2 />, document.getElementById('root'));
