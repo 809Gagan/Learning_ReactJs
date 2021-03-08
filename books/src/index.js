@@ -101,6 +101,7 @@ const Book = (props) => {
             <h4>{props.children}</h4>
             <h4>{BookName}</h4>
             <h4>Author: {AuthorName}</h4>
+            <Button></Button>
         </div>
     );
 }
@@ -126,6 +127,18 @@ const Image = () => {
             style = {styleObject}
         */
     );
+}
+
+const Button = () => {
+    //function to handle the click event we can also use the Anonymous Functions
+    const HandleClick = () => {
+        alert('hello GHOST');
+    }
+    return (
+        <button onClick={HandleClick} className="orangeButton">
+            Buy
+        </button>
+    )
 }
 
 
