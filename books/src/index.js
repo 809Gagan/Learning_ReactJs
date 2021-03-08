@@ -18,21 +18,25 @@ to thefunction component (Actually react passes this props object auttomatically
 
 const Books = [
     {
+        id: 1,
         AuthorName: "Gagan",
         BookName: "Tail of Heads",
         image: "/book.jpeg"
     },
     {
+        id: 2,
         AuthorName: "Jagnoor",
         BookName: "Sada Haq",
         image: "/book.jpeg"
     },
     {
+        id: 3,
         AuthorName: "Vishav",
         BookName: "Love is Life",
         image: "/book.jpeg"
     },
     {
+        id: 4,
         AuthorName: "Sukhraj",
         BookName: "Love is Technical",
         image: "/book.jpeg"
@@ -64,7 +68,7 @@ const BookList2 = () => {
     return (
         <React.Fragment>
             {Books.map((book) => {
-                return <Book book={book}></Book>;
+                return <Book key={book.id} book={book}></Book>;
             })}
         </React.Fragment>
     );
