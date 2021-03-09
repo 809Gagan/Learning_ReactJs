@@ -23,6 +23,11 @@ body{
 
 }
 
+.book:hover{
+    border-color: orange;
+    background-color: white;
+}
+
 .book h4{
     margin: 10px;
 }
