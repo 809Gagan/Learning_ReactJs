@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import "./index.css";
-
+import { Books } from './Books';
 
 /*
 This kind of Books will be of same properties 
@@ -16,45 +16,7 @@ to thefunction component (Actually react passes this props object auttomatically
     for eg : <Book Author = "Kali charan"/>
 */
 
-const Books = [
-    {
-        id: 1,
-        AuthorName: "Gagan",
-        BookName: "Tail of Heads",
-        image: "/book.jpeg",
-        handler: () => {
-            alert("hello Brother");
-        }
-    },
-    {
-        id: 2,
-        AuthorName: "Jagnoor",
-        BookName: "Sada Haq",
-        image: "/book.jpeg",
-        handler: () => {
-            alert("hello Brother");
-        }
-    },
-    {
-        id: 3,
-        AuthorName: "Vishav",
-        BookName: "Love is Life",
-        image: "/book.jpeg",
-        handler: () => {
-            alert("hello Brother");
-        }
-    },
-    {
-        id: 4,
-        AuthorName: "Sukhraj",
-        BookName: "Love is Technical",
-        image: "/book.jpeg",
-        handler: () => {
-            alert("hello Brother");
-        }
-    }
 
-];
 
 
 const BookList1 = () => {
@@ -93,11 +55,14 @@ const BookList2 = () => {
 const BookList3 = () => {
     return (
         <React.Fragment>
-            {
-                Books.map((book) => {
-                    return <Book key={book.id} {...book}></Book>//... is a spread  operator
-                })
-            }
+            <h1 style={{ color: "white", textAlign: 'center', fontSize: "70px" }}>CLICK ON BUY</h1>
+            <div id="bookList">
+                {
+                    Books.map((book) => {
+                        return <Book key={book.id} {...book}></Book>//... is a spread  operator
+                    })
+                }
+            </div>
         </React.Fragment>
     );
 }
@@ -113,6 +78,7 @@ const Book = (props) => {
             <h4>{props.children}</h4>
             <h4>{BookName}</h4>
             <h4>Author: {AuthorName}</h4>
+            <audio src="/Dog.wav" id="dogBark"></audio>
             <Button2 handler={props.handler}></Button2>
         </div>
     );

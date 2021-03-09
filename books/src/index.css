@@ -10,14 +10,20 @@ body{
     background: rgb(4, 11, 29);
     color:rgb(8, 33, 56);
 }
+#bookList
+{
+    display: grid;
+}
+
+
 .book{
+
     border-style: solid;
     border-color: black;
     border-radius: 20px;
     width: auto;
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
-    display: inline-block;
     text-align: center;
     background-color:rgb(255, 255, 255,0.8);
 
