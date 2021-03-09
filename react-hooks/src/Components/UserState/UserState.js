@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./UserState.css";
-
+import { data } from './peopleData'
 /* 
 useState is a function that is a react hook
 which return an array 
@@ -13,7 +13,7 @@ values.
 */
 
 export const UserState = () => {
-    const [Text, setText] = useState("Random Text");
+    const [Text, setText] = React.useState("Random Text");
     const Handler = () => {
         if (Text == "Random Text") {
             setText("Hello World")
@@ -23,9 +23,23 @@ export const UserState = () => {
         }
     }
     return (
-        <React.Fragment>
+        <div className="cardChangeText">
             <h1>{Text}</h1>
             <button onClick={Handler} className="orangeButton">Change Text</button>
+        </div>
+    )
+}
+
+export const UseStateArray = () => {
+    const [people, setpeople] = React.useState(data);
+    return (
+        <React.Fragment>
+            {
+                people.map((person) => {
+                    console.log(person.name)
+                    return <h1 className="item">{person.name}</h1>
+                })
+            }
         </React.Fragment>
     )
 }

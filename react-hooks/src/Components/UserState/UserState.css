@@ -1,3 +1,7 @@
+.orangeButton:focus
+{
+    outline: none;
+}
 .orangeButton{
     background-color: orange;
     color: white;
@@ -6,4 +10,21 @@
     font-weight: 900;
     border-radius: 10px;
     border-style: none;
+}
+
+.item{
+    background-color: white;
+    padding: 20px;
+    font-size: 30px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.cardChangeText
+{
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    display: inline-block;
+    border-radius: 20px;
 }
